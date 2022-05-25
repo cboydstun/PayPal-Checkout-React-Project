@@ -1,28 +1,26 @@
-import React from 'react'
-import './style.css'
-import ProductImage from '../images/product.jpg'
+import React, { useState } from 'react'
 import PaypalCheckoutButton from './PaypalCheckoutButton'
 
 function Checkout() {
+  const [amount, setAmount] = useState('1.00')
+
   const product = {
-    description: 'Learn how to build a website with React JS',
-    price: 2,
+    description: 'Friendly donation',
+    price: amount,
   }
+
   return (
-    <div className="checkout">
-      <h1>PayPal Checkout</h1>
-      <p className="checkout-title">
-        Design and Code React PayPal Checkout Procedure
-      </p>
-      <p className="checkout-description">BASIC $2 DONATION</p>
-      <h1 className="checkout-price">$2</h1>
-      <img className="product-image" src={ProductImage} alt="Product Image" />
-      <div className="separator"></div>
-      <div className="paypal">
-        <p className="checkout-title">PAY WITH PAYPAL</p>
-        <div className="paypal-button-container">
-          <PaypalCheckoutButton product={product} />
-        </div>
+    <div className="checkout-container">
+
+      <h1>FunAsFam.com Kickstarter</h1>
+      <input
+        type="number"
+        placeholder="Please Donate"
+        onChange={(e) => setAmount(e.target.value)}
+        value={amount}
+      />
+      <div className="paypal-button-container">
+        <PaypalCheckoutButton product={product} />
       </div>
     </div>
   )

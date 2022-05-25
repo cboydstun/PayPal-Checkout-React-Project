@@ -1,18 +1,26 @@
-import React from 'react';
-import "./App.css";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Checkout from "./components/Checkout";
-import {PayPalScriptProvider} from "@paypal/react-paypal-js";
+import React from 'react'
+import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Checkout from './components/Checkout'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 function App() {
   return (
     <PayPalScriptProvider
-      options={{"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID}}
+      options={{ 'client-id': process.env.REACT_APP_PAYPAL_CLIENT_ID }}
     >
       <div className="App">
+        <pre>{process.env.REACT_APP_PAYPAL_CLIENT_ID}</pre>
         <Router>
           <Routes>
-            <Route path="/" element={<><Checkout /></>} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Checkout />
+                </>
+              }
+            />
           </Routes>
         </Router>
       </div>

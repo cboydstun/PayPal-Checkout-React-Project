@@ -9,16 +9,26 @@ function Checkout() {
     price: amount,
   }
 
+  const  handleAmountChange = (e) => {
+    //if value is not a number or 0, set to 20.00
+    if (isNaN(e.target.value) || e.target.value === '' || e.target.value == '0') {
+      setAmount('20.00')
+    } else {
+      setAmount(e.target.value)
+    }
+  }
+
   return (
     <div className="checkout-container">
 
-      <h1>FunAsFam.com Kickstarter</h1>
+      <h1>FunAsFam.com Donation</h1>
       <input
         type="number"
         placeholder="Please Donate"
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={handleAmountChange}
         value={amount}
       />
+      <p>Thank you!</p>
       <div className="paypal-button-container">
         <PaypalCheckoutButton product={product} />
       </div>

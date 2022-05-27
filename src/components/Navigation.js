@@ -8,7 +8,7 @@ export default function Navigation() {
     <div>
       <nav className="navigation">
         <a href="/" className="brand-name">
-          MacroSoft
+          MacroSofts
         </a>
         <button className="hamburger">
           {/* icon from heroicons.com */}

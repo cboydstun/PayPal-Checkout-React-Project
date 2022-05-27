@@ -3,7 +3,6 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Checkout from './components/Checkout'
 import Image from './components/Image'
-import Navigation from './components/Navigation'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 function App() {
@@ -11,8 +10,6 @@ function App() {
     <PayPalScriptProvider
       options={{ 'client-id': process.env.REACT_APP_PAYPAL_CLIENT_ID }}
     >
-      {/* <Navigation /> */}
-
       <div className="App">
         <Router>
           <Routes>
